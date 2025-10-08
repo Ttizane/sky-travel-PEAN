@@ -27,6 +27,8 @@ SkyTravel è un'applicazione web full-stack per la gestione e prenotazione di vo
 - 📋 **Gestione Voli**: Creazione e modifica dei propri voli
 - 📊 **Report Prenotazioni**: Visualizzazione prenotazioni
 
+**Nota**: In coda a `Documentation.pdf` è presente un esempio di workflow tipico per ogni tipologia di utente.
+
 ## 🛠️ Tecnologie Utilizzate
 
 ### Frontend
