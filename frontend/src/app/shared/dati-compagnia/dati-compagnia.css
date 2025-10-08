@@ -1,0 +1,8 @@
+input::placeholder {
+	color: rgba(30, 64, 175, 0.35); 
+	transition: color .25s ease;
+}
+
+
+
+

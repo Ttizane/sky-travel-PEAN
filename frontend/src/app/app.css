@@ -1,0 +1,9 @@
+.navbar {
+  z-index: 9999;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

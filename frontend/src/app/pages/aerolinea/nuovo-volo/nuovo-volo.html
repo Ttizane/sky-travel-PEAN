@@ -1,0 +1,90 @@
+@if (isOpen) {
+<div class="modal modal-open">
+  @if (isOpenPopup) {
+    <div class="fixed inset-0 z-[120] flex items-center justify-center bg-black/20 backdrop-blur-sm">
+      <div class="w-full max-w-xl mx-auto px-6">
+        <app-popup
+          [message]="popupMessage"
+          [type]="popupType"
+          (onClose)="closePopup()"
+        ></app-popup>
+      </div>
+    </div>
+  }
+  <div class="modal-box w-11/12 max-w-3xl modal-form-container bg-white border-2 border-blue-200 rounded-2xl shadow-2xl relative">
+    <button type="button" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" (click)="close()">✕</button>
+    <h3 class="text-2xl font-bold text-blue-900 mb-2">Crea Nuovi Voli</h3>
+    <p class="text-blue-600 mb-6">Inserisci le informazioni per creare un nuovo volo</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="form-control">
+        <label class="label"><span class="label-text text-blue-800 font-semibold">Tratta *</span></label>
+        <select class="select w-full bg-white border-2 border-blue-200 focus:border-blue-400 hover:border-blue-300 rounded-xl focus:outline-none text-blue-800" required (change)="selectedRoute = $any($event.target).value">
+          <option disabled selected>Seleziona tratta</option>
+          @if (routes && routes.length > 0) {
+            @for (route of routes; track route.numero) {
+              <option [value]="route.numero">{{ route.partenza }} → {{ route.arrivo }}</option>
+            }
+          }
+        </select>
+      </div>
+      <div class="form-control">
+        <label class="label"><span class="label-text text-blue-800 font-semibold">Aeromobile *</span></label>
+        <select class="select w-full bg-white border-2 border-blue-200 focus:border-blue-400 hover:border-blue-300 rounded-xl focus:outline-none text-blue-800" required (change)="selectedAircraft = $any($event.target).value">
+          <option disabled selected>Seleziona aeromobile</option>
+          @if (aircrafts && aircrafts.length > 0) {
+            @for (a of aircrafts; track a.numero) {
+              <option [value]="a.numero">{{ a.numero }} — {{ a.modello }}</option>
+            }
+          }
+        </select>
+      </div>
+      <div class="form-control">
+        <label class="label"><span class="label-text text-blue-800 font-semibold">Data Inizio *</span></label>
+        <input type="date" class="input w-full bg-white border-2 border-blue-200 focus:border-blue-400 hover:border-blue-300 rounded-xl focus:outline-none text-blue-800" required (change)="startDate = $any($event.target).value" />
+      </div>
+      <div class="form-control">
+        <label class="label"><span class="label-text text-blue-800 font-semibold">Orario Partenza *</span></label>
+        <div>
+          <input type="time" class="input w-full bg-white border-2 border-blue-200 focus:border-blue-400 hover:border-blue-300 rounded-xl focus:outline-none text-blue-800" required (change)="departureTime = $any($event.target).value" />
+        </div>
+      </div>
+      <div class="form-control">
+        <label class="label"><span class="label-text text-blue-800 font-semibold">Settimane</span></label>
+        <input type="number" min="1" step="1" [value]="weeksCount" class="input w-full bg-white border-2 border-blue-200 focus:border-blue-400 hover:border-blue-300 rounded-xl focus:outline-none text-blue-800" (change)="onWeeksChange($any($event.target).value)" />
+  <label class="label"><span class="label-text-alt text-blue-600 text-sm">Numero di settimane per cui generare i voli (default: 1)</span></label>
+      </div>
+      <div class="form-control">
+        <label class="label"><span class="label-text text-blue-800 font-semibold">Frequenza *</span></label>
+        <select class="select w-full bg-white border-2 border-blue-200 focus:border-blue-400 hover:border-blue-300 rounded-xl focus:outline-none text-blue-800" required (change)="selectedFrequency = $any($event.target).value">
+          <option disabled selected>Seleziona frequenza</option>
+          <option value="giornaliero">Giornaliero</option>
+          <option value="settimanale">Settimanale</option>
+        </select>
+      </div>
+
+      @if (selectedFrequency === 'settimanale') {
+        <div class="form-control md:col-span-2 mt-2">
+          <label class="label"><span class="label-text text-blue-800 font-semibold">Giorni della Settimana</span></label>
+          <div class="flex flex-wrap gap-2">
+            <label class="label cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm checkbox-azzurro" (change)="onToggleDay('Lun', $any($event.target).checked)" /><span class="label-text ml-2 text-blue-800">Lun</span></label>
+            <label class="label cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm checkbox-azzurro" (change)="onToggleDay('Mar', $any($event.target).checked)" /><span class="label-text ml-2 text-blue-800">Mar</span></label>
+            <label class="label cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm checkbox-azzurro" (change)="onToggleDay('Mer', $any($event.target).checked)" /><span class="label-text ml-2 text-blue-800">Mer</span></label>
+            <label class="label cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm checkbox-azzurro" (change)="onToggleDay('Gio', $any($event.target).checked)" /><span class="label-text ml-2 text-blue-800">Gio</span></label>
+            <label class="label cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm checkbox-azzurro" (change)="onToggleDay('Ven', $any($event.target).checked)" /><span class="label-text ml-2 text-blue-800">Ven</span></label>
+            <label class="label cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm checkbox-azzurro" (change)="onToggleDay('Sab', $any($event.target).checked)" /><span class="label-text ml-2 text-blue-800">Sab</span></label>
+            <label class="label cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm checkbox-azzurro" (change)="onToggleDay('Dom', $any($event.target).checked)" /><span class="label-text ml-2 text-blue-800">Dom</span></label>
+          </div>
+          <label class="label"><span class="label-text-alt text-blue-600">Seleziona i giorni in cui il volo opera</span></label>
+        </div>
+      }
+    </div>
+    <div class="modal-action mt-6">
+      <form method="dialog" class="w-full flex gap-2 justify-end">
+        <button type="button" class="btn btn-ghost" (click)="close()">Annulla</button>
+        <button type="button" class="btn bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white border-none rounded-xl font-semibold shadow-lg" (click)="onCreateClick()">Aggiungi</button>
+      </form>
+    </div>
+  </div>
+  <div class="modal-backdrop bg-black/40" (click)="close()"></div>
+</div>
+}

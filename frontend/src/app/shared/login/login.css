@@ -1,0 +1,11 @@
+.login-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.login-container::-webkit-scrollbar { display: none; }
