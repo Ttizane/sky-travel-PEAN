@@ -97,7 +97,7 @@ L'applicazione sarà disponibile su:
 ```bash
 cd server
 npm install
-npm run dev
+ng serve
 ```
 
 **Frontend:**
@@ -125,22 +125,6 @@ Il database include:
 - Job schedulati per aggiornamento stato voli
 
 Vedi i diagrammi in `db/` per la struttura completa.
-
-## 🔧 Script Disponibili
-
-### Backend
-```bash
-npm run dev          # Avvia in modalità sviluppo
-npm run build        # Build per produzione
-npm start            # Avvia versione production
-```
-
-### Frontend
-```bash
-npm start            # Avvia dev server (porta 4200)
-npm run build        # Build per produzione
-npm test             # Esegui test
-```
 
 ## 🌐 Esempi API Endpoints
 
