@@ -93,8 +93,6 @@ In particolare, è possibile consultare:
 - la **documentazione delle API**;  
 - il **sistema di autenticazione**;
 
-Questi documenti forniscono una visione approfondita dell’**architettura**, della **logica applicativa** e del **flusso di autenticazione** di *SkyTravel* e possono essere trovati all’interno della cartella dedicata alla documentazione nel repository.
-
 Per chi invece desidera **avviare il progetto in locale**, è sufficiente seguire le istruzioni contenute nel file **“AVVIO.txt”**, che descrive passo per passo la configurazione dell’ambiente e l’esecuzione dei vari servizi.
 
 ## Autori
