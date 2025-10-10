@@ -78,7 +78,6 @@ Tutti i token vengono **firmati con JWT**, utilizzando una chiave di firma **rig
 
 L’integrazione con il frontend è stata realizzata tramite **interceptor** e **guardie di rotta (Route Guards)** in Angular, che permettono di collegare perfettamente il lato client con la logica di autenticazione del server, mantenendo prestazioni elevate e massima protezione.
 
-Questo modello di autenticazione ci consente di ottenere un sistema **sicuro, veloce e bilanciato**, che tutela efficacemente sia il **lato client** sia il **lato server**.  
 Durante lo sviluppo abbiamo anche valutato un’**alternativa sperimentale**, basata su un **token unico “spezzato”**, in cui la parte principale del token verrebbe salvata nel LocalStorage e la **firma associata** in un cookie separato: una soluzione concepita per aumentare ulteriormente la resistenza ad attacchi **XSS parziali** o **CSRF**, anche se la nostra implementazione attuale già minimizza tali rischi.
 
 Per ulteriori approfondimenti sulla **sicurezza dell’applicazione web**, sulla **gestione delle sessioni** e sul **sistema di autenticazione**, è possibile consultare **uno qualsiasi dei file di documentazione** presenti nel repository.
@@ -90,9 +89,9 @@ Per chi fosse interessato ad approfondire gli aspetti tecnici dell’applicazion
 In particolare, è possibile consultare:
 - l’**architettura completa del sistema**, che illustra l’interazione tra client, server e database;  
 - la **progettazione del database**;
-- la **parte frontend Angular**, con la documentazione delle **guardie di rotta (Route Guards)**, degli **interceptor** e del **sistema di routing** per la gestione delle componenti;  
-- la **documentazione delle API**, che include l’elenco completo degli endpoint, dei metodi, dei parametri e delle risposte previste;  
-- il **sistema di autenticazione**, che spiega in dettaglio la gestione dei token JWT, il flusso di login e refresh, e i controlli di accesso lato client e server.
+- la **parte frontend Angular**, con la documentazione delle **Route Guards**, degli **interceptor** e del **sistema di routing** per la gestione delle componenti;  
+- la **documentazione delle API**;  
+- il **sistema di autenticazione**;
 
 Questi documenti forniscono una visione approfondita dell’**architettura**, della **logica applicativa** e del **flusso di autenticazione** di *SkyTravel* e possono essere trovati all’interno della cartella dedicata alla documentazione nel repository.
 
