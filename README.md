@@ -11,12 +11,10 @@ SkyTravel è un’applicazione web a tre livelli — client, server e database �
 All’interno dei file di documentazione sono presenti immagini e diagrammi che mostrano l’intera applicazione in esecuzione, oltre al **workflow progettato per ogni tipologia di utente**. Queste risorse consentono di comprendere visivamente la struttura del sistema e le interazioni principali tra le varie componenti.
 
 #### Utenti passeggeri
-I passeggeri possono **creare un profilo personale**, successivamente **visualizzarlo e modificarlo**.  
-Il profilo contiene informazioni utili, tra cui il **programma fedeltà**, la **foto profilo** e l’elenco delle **prenotazioni effettuate**, che possono essere visualizzate come **singoli biglietti**.  
+I passeggeri possono **creare un profilo personale**, successivamente **visualizzarlo e modificarlo**. 
 Gli utenti possono **ricercare voli** e visualizzare **itinerari completi** in base a parametri specifici di **partenza, arrivo e date**.  
 Una volta trovato un volo, è possibile **prenotare biglietti**, selezionando i **posti** desiderati per ogni tratta.  
 Il sistema consente inoltre di **effettuare pagamenti online** e di **consultare i biglietti acquistati**.  
-La **registrazione** e l’inserimento dei dati personali vengono gestiti **in autonomia** dall’utente.
 
 #### Compagnie aeree
 Le compagnie aeree vengono **create dall’amministratore** e **abilitate tramite invito**.  
@@ -69,7 +67,7 @@ L’amministratore rappresenta quindi il punto di controllo principale per la ge
 
 ## Aspetti di Interesse e Caratteristiche Distintive
 
-Uno degli elementi che consideriamo più affascinanti e di maggior valore all’interno del progetto *SkyTravel* è il **sistema di autenticazione**, realizzato con un approccio moderno, sicuro e altamente personalizzato.
+Uno degli elementi che consideriamo di maggior valore all’interno del progetto *SkyTravel* è il **sistema di autenticazione**, realizzato con un approccio moderno, sicuro e altamente personalizzato.
 
 Il sistema di autenticazione è basato su una **combinazione di token di accesso e token di refresh**:  
 - i **token di accesso** vengono salvati nel **LocalStorage** del browser e gestiti dal client per l’autenticazione immediata;  
@@ -90,10 +88,8 @@ Per ulteriori approfondimenti sulla **sicurezza dell’applicazione web**, sulla
 Per chi fosse interessato ad approfondire gli aspetti tecnici dell’applicazione, sono disponibili **file di documentazione dedicati** che illustrano nel dettaglio la progettazione e l’implementazione delle diverse componenti del sistema.
 
 In particolare, è possibile consultare:
-- l’**architettura completa del sistema**, che illustra l’interazione tra client, server e database, con particolare attenzione alla suddivisione a tre livelli;  
-- la **progettazione del database**, sviluppata in due fasi:  
-  - **modello orientato agli oggetti per lo schema concettuale**;  
-  - **modello relazionale per lo schema logico**, che descrive in modo formale le tabelle, le chiavi e le relazioni eventualmente implementate;  
+- l’**architettura completa del sistema**, che illustra l’interazione tra client, server e database;  
+- la **progettazione del database**;
 - la **parte frontend Angular**, con la documentazione delle **guardie di rotta (Route Guards)**, degli **interceptor** e del **sistema di routing** per la gestione delle componenti;  
 - la **documentazione delle API**, che include l’elenco completo degli endpoint, dei metodi, dei parametri e delle risposte previste;  
 - il **sistema di autenticazione**, che spiega in dettaglio la gestione dei token JWT, il flusso di login e refresh, e i controlli di accesso lato client e server.
