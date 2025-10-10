@@ -1,4 +1,4 @@
-# ✈️ SkyTravel - Sistema di Prenotazione Voli
+# ✈️ SkyTravel
 
 Sistema completo di prenotazione voli online sviluppato con stack PEAN (PostgreSQL, Express, Angular, Node.js).
 
